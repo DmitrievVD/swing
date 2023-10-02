@@ -108,13 +108,17 @@ public class Map extends JPanel {
             for (int x = 0; x < fieldSizeX; x++) {
                 if (field[y][x] == EMPLY_DOT) continue;
                 if (field[y][x] == HUMAN_DOT) {
-                    g.setColor(Color.BLUE);
-                    g.fillOval(x * cellWidth + DOT_PADDING,
+                    g.setColor(Color.BLACK);
+                    g.drawLine(x * cellWidth + DOT_PADDING,
                             y * cellHeight + DOT_PADDING,
-                            cellWidth - DOT_PADDING * 2,
-                            cellHeight - DOT_PADDING * 2);
+                            (x + 1) * cellWidth - DOT_PADDING,
+                            (y + 1) * cellWidth - DOT_PADDING * 2);
+                    g.drawLine(x * cellWidth + DOT_PADDING,
+                            (y + 1) * cellWidth - DOT_PADDING,
+                            (x + 1) * cellWidth - DOT_PADDING,
+                            y * cellWidth + DOT_PADDING);
                 } else if (field[y][x] == AI_DOT) {
-                    g.setColor(new Color(0xff0000));
+                    g.setColor(Color.BLACK);
                     g.fillOval(x * cellWidth + DOT_PADDING,
                             y * cellHeight + DOT_PADDING,
                             cellWidth - DOT_PADDING * 2,
